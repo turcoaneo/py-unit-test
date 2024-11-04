@@ -43,6 +43,9 @@ class TestNerClient(unittest.TestCase):
     @parameterized.expand(((
             ("Laurent Fressinet", "PERSON", "Person"),
             ("Lithuanian", "NORP", "Group"),
+            ("the ocean", "LOC", "Location"),
+            ("ASL", "LANGUAGE", "Language"),
+            ("Australia", "GPE", "Location"),
     )))
     def test_givenModel_whenCallSpacy_thenReturnGroup(self, text, label, expected):
         model = NerModelTestDoubles('eng')
