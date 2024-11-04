@@ -13,16 +13,23 @@ python -m pip install -r requirements.txt
  
 ## Run tests from directory test
 python -m pytest test
+venv/Scripts/python -m pytest test (Git Bash)
 ## Run individual parameterized test from command line (terminal)
 ### Not working in Pycharm individually, only at class level
 pytest test/test_ner_client.py -k test_givenModel_whenCallSpacy_thenReturnGroup
 ## Run end-2-end test
 ### ...in terminal, first step
 python app.py
+venv\Scripts\python app.py (Windows cmd)
 ### Run test from Pycharm 
 test_browser_title_contains_app_name
 ### or run from other terminal
+### Run one test method
 pytest test/test_index_e2e.py -k test_browser_title_contains_app_name
+### Run one test method from virtual env (Git Bash)
+venv/Scripts/pytest test/test_index_e2e.py -k test_browser_title_contains_app_name
+### Run class test methods from virtual env (Windows cmd)
+venv\Scripts\pytest test/test_index_e2e.py
 
 
 # Git
