@@ -13,3 +13,17 @@ python -m pip install -r requirements.txt
  
 ## Run tests from directory test
 python -m pytest test
+
+# Git
+
+## Username
+git config --global user.name "Ovidiu Turcoane"
+## Email
+git config --global user.email "ovidiu.turcoane@gmail.com"
+## Password
+git config --global user.password "standard pass for a site"
+
+## Credential store
+git config --global credential.helper store
+## Check
+git config --list --show-origin
