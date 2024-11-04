@@ -13,6 +13,9 @@ python -m pip install -r requirements.txt
  
 ## Run tests from directory test
 python -m pytest test
+## Run individual parameterized test from command line
+### Not working in Pycharm individually, only at class level
+pytest test/test_ner_client.py -k test_givenModel_whenCallSpacy_thenReturnGroup
 
 # Git
 

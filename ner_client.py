@@ -1,6 +1,3 @@
-import spacy
-
-
 class NamedEntityClient:
     def __init__(self, model):
         self.model = model
@@ -15,5 +12,8 @@ class NamedEntityClient:
         label_map = {
             'PERSON': 'Person',
             'NORP': 'Group',
+            'LOC': 'Location',
+            'LANGUAGE': 'Language',
+            'GPE': 'Location',
         }
         return label_map.get(label)
