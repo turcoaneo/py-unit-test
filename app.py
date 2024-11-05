@@ -2,6 +2,7 @@ import json
 
 import spacy
 from flask import Flask, render_template, request
+from flask_cors import CORS, cross_origin
 
 from ner_client import NamedEntityClient
 
@@ -17,11 +18,13 @@ def index():
 
 
 @app.route('/ner', methods=['POST'])
+@cross_origin(CORS(app))
 def get_named_ents():
     data = request.get_json()
     result = ner.get_entities(data['sentence'])
     response = {"entities": result.get("ents"), "html": result.get("html")}
-    return json.dumps(response)
+    dumps = json.dumps(response)
+    return dumps
 
 
 if __name__ == '__main__':

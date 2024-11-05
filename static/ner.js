@@ -1,12 +1,16 @@
 const fetchResult = (sent) => {
     fetch('http://localhost:5000/ner', {
         method: 'POST',
-        headers: new Headers({ 'content-type': 'application/json' }),
+        headers: new Headers({
+            'content-type': 'application/json',
+            // 'Access-Control-Allow-Origin': 'http://localhost:5000'
+        }),
         cache: 'no-cache',
-        body: JSON.stringify({ 'sentence': sent })
+        body: JSON.stringify({'sentence': sent})
     }).then(async (response) => {
         if (response.ok) {
             let result = await response.json();
+            // console.log("result: " + result['entities'][0]['ent'] + " - " + result['entities'][0]['label'])
             let labeledDoc = document.getElementById('labeled-doc')
             labeledDoc.innerHTML = result.html;
             return buildNerTable(result.entities);
