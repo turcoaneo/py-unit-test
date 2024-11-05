@@ -5,6 +5,18 @@
 </head>
 <body>
 <h1 id="app-heading" data-test-id="heading-title">Name Entity Finder</h1>
-<p>This is an example paragraph.</p>
+<label for="input-text">Type sentence</label><input id="input-text" data-test-id="input-text" class="form-control">
+<button id="find-button" data-test-id="submit-button" type="button" class="btn btn-outline-primary">Send</button>
+<table id="ner-table" data-test-id="table-result" class="table table-border">
+    <thead class="thead dark">
+    <tr>
+        <th>Entity</th>
+        <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
 </body>
 </html>
