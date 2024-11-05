@@ -1,5 +1,5 @@
 # py-unit-test
-Learning TDD with python
+Learning TDD with python by Wes Doyle
 
 ## Run first installment
 

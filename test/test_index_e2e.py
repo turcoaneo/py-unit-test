@@ -7,8 +7,9 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class E2ETests(unittest.TestCase):
-    expected_text = 'Name Entity Finder'
+    expected_text = 'Named Entity Finder'
     heading_title = 'heading-title'
+    input_text_id = 'input-text'
 
     def setUp(self):
         self.driver = webdriver.Chrome()
@@ -21,7 +22,7 @@ class E2ETests(unittest.TestCase):
         self.assertIn("Named Entity", self.driver.title)
 
     def test_app_name(self):
-        heading = self.find('app-heading')
+        heading = self.find('app-title')
         self.assertEqual(self.expected_text, heading)
 
     def test_app_name_by_test_id(self):
@@ -33,7 +34,7 @@ class E2ETests(unittest.TestCase):
         self.assertEqual(self.expected_text, heading)
 
     def test_page_has_input_text(self):
-        input_element = self.find_text_by_id_css('input', 'input-text')
+        input_element = self.find_text_by_id_css('input', self.input_text_id)
         self.assertIsNotNone(input_element)
 
     def test_page_has_submit_button(self):
@@ -41,7 +42,7 @@ class E2ETests(unittest.TestCase):
         self.assertIsNotNone(button)
 
     def test_page_has_table(self):
-        input_element = self.find_element_by_id_css('input', 'input-text')
+        input_element = self.find_element_by_id_css('input', self.input_text_id)
         button = self.find_element_by_id_css('button', 'submit-button')
         input_element.send_keys('France and Germany share a border in Europe')
         button.click()
