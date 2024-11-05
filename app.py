@@ -7,7 +7,6 @@ from flask_cors import CORS, cross_origin
 from ner_client import NamedEntityClient
 
 app = Flask(__name__)
-app.config['CORS_HEADERS'] = 'Content-Type'
 
 model = spacy.load("en_core_web_sm")
 ner = NamedEntityClient(model)
